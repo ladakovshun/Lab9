@@ -1,0 +1,37 @@
+﻿@model List<WebApplication9.Models.Product>
+
+<h1>Product List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Created Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ID</td>
+                <td>@product.Name</td>
+                <td>@product.Price $</td>
+                <td>@product.CreatedDate.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h2>Current Weather</h2>
+@if (ViewBag.Weather != null)
+{
+    var weather = ViewBag.Weather;
+    <p>Location: @weather.Location</p>
+    <p>Temperature: @weather.Temperature °C</p>
+    <p>Weather: @weather.Description</p>
+}
+else
+{
+    <p>No weather data available.</p>
+}
